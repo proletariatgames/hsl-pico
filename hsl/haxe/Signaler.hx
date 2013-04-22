@@ -26,7 +26,7 @@
  */
 package hsl.haxe;
  
-typedef IgnoredReturnType = #if haxe_211 Void #else Dynamic #end;
+typedef IgnoredReturnType = #if (haxe_211 || haxe3) Void #else Dynamic #end;
 
 /**
  * A signalers is a tool, used by a subject to notify its environment (listeners). Subjects create their signalers, usually in
