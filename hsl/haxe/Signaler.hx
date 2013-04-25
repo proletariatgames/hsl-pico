@@ -40,7 +40,14 @@ typedef IgnoredReturnType = #if (haxe_211 || haxe3) Void #else Dynamic #end;
  * each type of signal has its own signaler.
  * </li></ul>
  */
+#if cs
+// !!FIXME!! temp workaround for CS generics generation bug
+typedef Signaler<T> = _Signaler;
+typedef Datatype = Dynamic;
+interface _Signaler {
+#else
 interface Signaler<Datatype> {
+#end
 	/**
 	 * Indicates whether the signaler is listened to by at least one listener.
 	 * 
