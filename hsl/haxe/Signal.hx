@@ -30,14 +30,7 @@ package hsl.haxe;
  * A signal is dispatched by a subject, through a signaler. However, only listeners that were added using the bindAdvanced
  * method can access the actual Signal instances.
  */
-#if cs
-// !!FIXME!! temp workaround for CS generics generation bug
-typedef Signal<T> = _Signal;
-private typedef Datatype = Dynamic;
-class _Signal {
-#else
 class Signal<Datatype> {
-#end
 	/**
 	 * The bond that is currently processing the signal.
 	 */
