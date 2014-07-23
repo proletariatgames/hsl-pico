@@ -5,7 +5,7 @@
   "description": "HSL, pronounced \"hustle\", stands for haXe Signaling Library. It makes writing event-driven code in haXe hassle-free. This package consists only of the core functionalities of the library. It is recommended that you grab the full library by installing the \"hsl-1\" package.",
   "contributors": ["pimmhogeling"],
   "releasenote": "Added one-off bond functionality.",
-  "version": "1.6",
+  "version": "1.6.0",
   "url": "http://hxhsl.googlecode.com/",
   "dependencies": {
 
