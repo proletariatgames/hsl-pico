@@ -17,22 +17,22 @@
  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  * End of conditions.
- * 
+ *
  * The license of this software might change in the future, most likely to match the license of the haXe core libraries. In
  * such event, you may use this version of this software under either the terms above or under the terms of the new license of
  * this software.
  */
-package hsl.haxe;
+package hsl;
 import haxe.exception.Exception;
 import haxe.Timer;
-import hsl.haxe.DirectSignaler;
+import hsl.DirectSignaler;
 
 /**
  * A signaler that delays signals, merging signals that are dispatched right after another. If the signaler merges multiple
  * signals, to the outside world, it will be as if only the last signal was dispatched.
- * 
+ *
  * This type of signaler is useful if, for instance, you have a slider and you perform some heavy logic whenever the user
  * changes the value of that slider. If the user changes that value a couple of times in one second, you'd want the logic to be
  * performed only once. The merging signaler helps achieve this, by merging the signals dispatched whenever the value changes
@@ -48,13 +48,13 @@ class MergingSignaler<Datatype> extends DirectSignaler<Datatype> {
 	private var timerRunning:Bool;
 	/**
 	 * Creates a new merging signaler.
-	 * 
+	 *
 	 * The passed subject will be used as the subject of this signaler. Only the subject is allowed to call the dispatch method.
 	 * Signals dispatched by this signaler will have the subject as current target, and in some cases as origin.
-	 * 
+	 *
 	 * The passed delay defines how long the signaler waits after the first signal was dispatched before dispatching the merged
 	 * signal. Zero (0) is a valid value, passing null or nothing is equivalent to passing zero.
-	 * 
+	 *
 	 * If the reject null data flag is set, the signaler will throw an exception if the subject attempts to dispatch a signal
 	 * with null as data, or the the signaler is about to bubble a signal that contains null as data.
 	 */

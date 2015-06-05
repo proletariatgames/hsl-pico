@@ -17,19 +17,19 @@
  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  * End of conditions.
- * 
+ *
  * The license of this software might change in the future, most likely to match the license of the haXe core libraries. In
  * such event, you may use this version of this software under either the terms above or under the terms of the new license of
  * this software.
  */
-package hsl.haxe;
+package hsl;
 
 /**
  * A bond represents the connection between a signaler and a listener. Bonds are created when listeners add themselves to a
  * signaler.
- * 
+ *
  * Bonds are used internally, and can be ignored in common cases. However, sometimes it is useful for listeners to store the
  * bond in a variable. Doing so allows you to halt and resume the bond, and destroy it easily.
  */

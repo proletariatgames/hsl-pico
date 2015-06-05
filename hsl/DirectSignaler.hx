@@ -17,17 +17,17 @@
  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  * End of conditions.
- * 
+ *
  * The license of this software might change in the future, most likely to match the license of the haXe core libraries. In
  * such event, you may use this version of this software under either the terms above or under the terms of the new license of
  * this software.
  */
-package hsl.haxe;
+package hsl;
 import haxe.exception.ArgumentNullException;
 import haxe.exception.Exception;
-import hsl.haxe.Signaler;
+import hsl.Signaler;
 
 /**
  * A signaler that dispatches signals directly.
@@ -51,10 +51,10 @@ class DirectSignaler<Datatype> implements Signaler<Datatype> {
 	private var subjectClassNames:List<String>;
 	/**
 	 * Creates a new direct signaler.
-	 * 
+	 *
 	 * The passed subject will be used as the subject of this signaler. Only the subject is allowed to call the dispatch method.
 	 * Signals dispatched by this signaler will have the subject as current target, and in some cases as origin.
-	 * 
+	 *
 	 * If the reject null data flag is set, the signaler will throw an exception if the subject attempts to dispatch a signal
 	 * with null as data, or the the signaler is about to bubble a signal that contains null as data.
 	 */
@@ -184,7 +184,7 @@ class DirectSignaler<Datatype> implements Signaler<Datatype> {
 	/**
 	 * Checks whether the class name inside the passed position information equals the class name of the subject of this
 	 * signaler. Used in the dispatch method, as that method may only be called by the subject.
-	 * 
+	 *
 	 * Two notes.
 	 * One, by using this method you check whether the caller is of the same type as the subject, which does not necessarily mean
 	 * it's the same instance. This is the expected behavior, as it is consistent with private members.
@@ -318,7 +318,7 @@ private class SentinelBond<Datatype> extends LinkedBond<Datatype> {
 	}
 	/**
 	 * Removes a bond connected to the sentinel.
-	 * 
+	 *
 	 * The sentinel will look for the first bond equal to the passed value connected to it, and destroy it.
 	 */
 	public inline function remove(value:LinkedBond<Datatype>):Void {

@@ -17,21 +17,21 @@
  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  * End of conditions.
- * 
+ *
  * The license of this software might change in the future, most likely to match the license of the haXe core libraries. In
  * such event, you may use this version of this software under either the terms above or under the terms of the new license of
  * this software.
  */
-package hsl.haxe;
- 
+package hsl;
+
 typedef IgnoredReturnType = #if (haxe_211 || haxe3) Void #else Dynamic #end;
 
 /**
  * A signalers is a tool, used by a subject to notify its environment (listeners). Subjects create their signalers, usually in
  * their constructors. Listeners add themselves to signalers by calling one of the binding methods.
- * 
+ *
  * <ul><li>
  * If you are familiar with as3-signals by Robert Penner: signalers are similar to "signals" in that library.
  * </li><li>
@@ -43,15 +43,15 @@ typedef IgnoredReturnType = #if (haxe_211 || haxe3) Void #else Dynamic #end;
 interface Signaler<Datatype> {
 	/**
 	 * Indicates whether the signaler is listened to by at least one listener.
-	 * 
+	 *
 	 * This property can be used for speed optimizations. If a signaler is not listened to, its subject does not have to
 	 * calculate a value if that value will only be sent in a signal.
-	 * 
+	 *
 	 * In this example the ball only calculates the distance if a listener is added to the signaler:
 	 * <pre>
 	 * package;
-	 * import hsl.haxe.direct.DirectSignaler;
-	 * import hsl.haxe.Signaler;
+	 * import hsl.direct.DirectSignaler;
+	 * import hsl.Signaler;
 	 * class Ball {
 	 * 	public var distanceUpdatedSignaler(default, null):DirectSignaler&lt;Float&gt;;
 	 * 	public function new():Void {
@@ -73,7 +73,7 @@ interface Signaler<Datatype> {
 	public var subject(default, null):Subject;
 	/**
 	 * Adds a bubbling target to the signaler. The signaler will bubble to this bubbling target in bubbling processes.
-	 * 
+	 *
 	 * <ul><li>
 	 * If you are familiar with events in ActionScript 3.0, or as3-signals by Robert Penner: those systems do not have an
 	 * equivalent to this method, as they don't allow you to manually define where events/signals bubble to.
@@ -83,7 +83,7 @@ interface Signaler<Datatype> {
 	/**
 	 * Adds a notification target to the signaler. The signaler will notify to this notification target in bubbling processes,
 	 * however, the data inside the signal will not be passed to this notification target.
-	 * 
+	 *
 	 * <ul><li>
 	 * If you are familiar with events in ActionScript 3.0, or as3-signals by Robert Penner: those systems do not have an
 	 * equivalent to this method, as they don't allow you to manually define where events/signals bubble to.
@@ -94,7 +94,7 @@ interface Signaler<Datatype> {
 	 * Binds this signaler to a listener function that accepts an argument of the datatype of this signaler, and returns nothing.
 	 * Returns the bond between the signaler. The bond can be removed by calling either the unbind method of the signaler, or the
 	 * destroy method of the returned bond.
-	 * 
+	 *
 	 * <ul><li>
 	 * If you are familiar with jQuery: this method is similar to the "bind" method of that library.
 	 * </li><li>
@@ -109,7 +109,7 @@ interface Signaler<Datatype> {
 	 * Binds this signaler to a listener function that accepts a signal, and returns nothing. Returns the bond between the
 	 * signaler. The bond can be removed by calling either the unbindAdvanced method of the signaler, or the destroy method of
 	 * the returned bond.
-	 * 
+	 *
 	 * <ul><li>
 	 * If you are familiar with jQuery: this method is similar to the "bind" method of that library.
 	 * </li><li>
@@ -125,7 +125,7 @@ interface Signaler<Datatype> {
 	 * Binds this signaler to a listener function that accepts nothing, and returns nothing. Returns the bond between the
 	 * signaler. The bond can be removed by calling either the unbindVoid method of the signaler, or the destroy method of the
 	 * returned bond.
-	 * 
+	 *
 	 * <ul><li>
 	 * If you are familiar with jQuery: this method is similar to the "bind" method of that library.
 	 * </li><li>
